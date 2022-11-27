@@ -1,3 +1,5 @@
+import java.awt.Color;
+import java.awt.Point;
 import java.util.Scanner;
 
 public class Last_problem {
@@ -29,7 +31,80 @@ public class Last_problem {
         r3.move(x, y);
         System.out.println(r3.show());
     }
-	class Rectangle{
+	
+	
+}
+
+class Rectangle{
+	public int width=1;
+	private int height=1;
+	public static Color color=Color.black;
+	private double x=0.0;
+	private double y=0.0;
+	
+	public Rectangle() {
+		// TODO 自动生成的构造函数存根
+		
 		
 	}
+	
+	public Rectangle(int width,int height) {
+		if(width<=0) {
+			width=1;
+		}
+		if(height<0) {
+			height=1;
+		}
+		this.width=width;
+		this.height=height;
+		
+	}
+	
+	public int getWidth() {
+		return width;
+	}
+	public void setWidth(int width) {
+		if(width<=0) {
+			return;
+		}
+		else {
+			this.width = width;
+		}
+		
+	}
+	
+	
+	public int getHeight() {
+		return height;
+	}
+	public void setHeight(int height) {
+		if(height<=0) {
+			return;
+		}
+		else {
+			this.height = height;
+		}
+	}
+	
+		
+	public int getPerimeter() {
+		return 2*this.height+2*this.width;
+	}
+	
+	public int getArea() {
+		return this.width*this.height;
+	}
+	
+	
+	public void move(double x,double y) {
+		this.x=x;
+		this.y=y;
+	}
+	
+	public String show() {
+		String s=new String("location:("+this.x+","+this.y+")");
+		return s;
+	}
+	
+	
 }
