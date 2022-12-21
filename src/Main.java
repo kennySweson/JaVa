@@ -1,32 +1,51 @@
 import java.util.*;
 public class Main{
-	
 	public static void main(String args[]) {
-		Scanner sc=new Scanner(System.in);
-		String sentence = sc.nextLine();
-
-		// 将整个句子转换为小写
-		sentence = sentence.toLowerCase();
-
-		// 将每个单词的首字母转换为大写
-		String[] words = sentence.split(" ");
-		for (int i = 0; i < words.length; i++) {
-		  String word = words[i];
-		  String firstLetter = word.substring(0, 1);
-		  firstLetter = firstLetter.toUpperCase();
-		  word = firstLetter + word.substring(1);
-		  words[i] = word;
-		}
-
-		// 将改变后的单词重新组合成句子
-		sentence = String.join(" ", words);
-
-		// 输出改变后的句子
-		System.out.println(sentence); // 输出: Hello World
-
-		
-		
-		
-		
+		double w,h;
+		Rectangle r;
+		Square s;
+		Scanner in=new Scanner(System.in);
+		w=in.nextDouble();
+		h=in.nextDouble();
+		//根据运行结果，创建合适的对象；
+		r=new Rectangle(w, h);
+		System.out.printf("%.2f\n",r.getArea());  //15.00
+		//创建合适的对象；
+		s=new Square(w);
+		System.out.printf("%.2f\n",s.getArea());  //25.00
+		System.out.printf("%.2f\n",s.getLength());  //5.00
+		//创建合适的对象；
+		r=new Rectangle(h, h);
+		System.out.printf("%.2f\n",r.getArea());  //9.00
 	}
+}
+class Rectangle{
+	private double width,height;
+	Rectangle(double width,double height){
+		this.width=width;
+		this.height=height;
+	}
+	double getArea(){
+		return width*height;
+	}
+	double getWidth(){
+		return width;
+	}
+	double getHeight(){
+		return height;
+	}
+}
+
+class Square extends Rectangle{
+	private static double length;
+	public Square(double l) {
+		super(l, l);
+		this.length=l;
+		// TODO 自动生成的构造函数存根
+	}
+	
+	public double getLength() {
+		return length;
+	}
+	
 }
