@@ -1,37 +1,56 @@
 import java.util.*;
+
 public class Main{
 	public static void main(String args[]) {
-		double a,area;
-		Square sq;
-		Scanner reader=new Scanner(System.in);
-		a=reader.nextDouble();
-		/*以缺省方式创建Square对象*/
-		sq=new Square();
-		/*调用Square对象的getArea方法，返回值存放在area中*/
-		area=sq.getArea();
-		System.out.printf("%.1f\n",area);
-		/*以带参数a的方式创建Square对象*/
-		sq=new Square(a);
-		System.out.printf("%.1f\n",sq.getArea());
-	}    
+		double w, h;
+		Rectangle r;
+		Perimeter p;
+		Scanner in=new Scanner(System.in);
+		w=in.nextDouble();
+		h=in.nextDouble();
+		
+		r=new Rectangle(w, h);
+		p=r;
+		System.out.printf("%.2f\n",r.getArea());
+		System.out.printf("%.2f\n",p.getPerimeter());
+	}	
+	
 }
 
-class Square{
-	double length;
-	/*带一个参数的构造方法*/
-	public Square(double l) {
-		length=l;
+
+interface Area{
+	double getArea();
+}
+
+interface Perimeter{
+	double getPerimeter();
+}
+
+class Rectangle implements Area,Perimeter{
+	private double width,height;
+	public Rectangle(double width, double height) {
+		this.width=width;
+		this.height=height;
 		// TODO 自动生成的构造函数存根
 	}
-
-	/*缺省构造方法，即不带参数的构造方法，将length值设置为1.0*/
-	public Square() {
-		length=1;
+	
+	double getWidth() {
+		return width;
+	}
+	double getHeight() {
+		return height;
 	}
 
-
-	/*公共方法getArea，返回正方形面积*/
-	double getArea() {
-		return length*length;
+	@Override
+	public double getPerimeter() {
+		// TODO 自动生成的方法存根
+		return 2*width+2*height;
 	}
+
+	@Override
+	public double getArea() {
+		// TODO 自动生成的方法存根
+		return width*height;
+	}
+	
 }
